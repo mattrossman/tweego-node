@@ -1,0 +1,16 @@
+{
+  "name": "tweego",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "install": "node src/install.js",
+    "postinstall": "rm dist/archive.zip && rm -rf ./node_modules/"
+  },
+  "bin": {
+    "tweego": "./dist/bin/tweego"
+  },
+  "dependencies": {
+    "node-wget-js": "^1.0.1",
+    "unzipper": "^0.10.11"
+  }
+}
