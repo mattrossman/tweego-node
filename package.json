@@ -7,7 +7,7 @@
     "postinstall": "rm dist/archive.zip"
   },
   "bin": {
-    "tweego": "./dist/bin/tweego"
+    "tweego": "./src/run.js"
   },
   "dependencies": {
     "adm-zip": "^0.4.16",

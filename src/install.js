@@ -39,6 +39,7 @@ if (supportedSystem()) {
 				console.log('Extracting...')
                 const zip = new AdmZip("dist/archive.zip");
                 zip.extractAllTo("dist/bin", true);
+				fs.chmodSync('dist/bin/tweego', '755');
 			}
 		}
 	)
