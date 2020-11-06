@@ -4,7 +4,7 @@ const wget = require('node-wget-js')
 const AdmZip = require('adm-zip')
 
 function ensureDirExists(dir) {
-	if (!fs.existsSync(dir)){
+	if (!fs.existsSync(dir)) {
 		fs.mkdirSync(dir);
 	}
 }
@@ -31,14 +31,15 @@ if (supportedSystem()) {
 	console.log("Downloading " + getDownloadUrl())
 	wget({
 		url: getDownloadUrl(),
-		dest: 'dist/archive.zip'},
-		function (error) {
+		dest: 'dist/archive.zip'
+	},
+		function(error) {
 			if (error) {
 				console.error(error);
 			} else {
 				console.log('Extracting...')
-                const zip = new AdmZip("dist/archive.zip");
-                zip.extractAllTo("dist/bin", true);
+				const zip = new AdmZip("dist/archive.zip");
+				zip.extractAllTo("dist/bin", true);
 				fs.chmodSync('dist/bin/tweego', '755');
 			}
 		}
