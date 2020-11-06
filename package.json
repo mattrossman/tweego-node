@@ -4,13 +4,13 @@
   "license": "MIT",
   "scripts": {
     "install": "node src/install.js",
-    "postinstall": "rm dist/archive.zip && rm -rf ./node_modules/"
+    "postinstall": "rm dist/archive.zip"
   },
   "bin": {
     "tweego": "./dist/bin/tweego"
   },
   "dependencies": {
-    "node-wget-js": "^1.0.1",
-    "unzipper": "^0.10.11"
+    "adm-zip": "^0.4.16",
+    "node-wget-js": "^1.0.1"
   }
 }

@@ -1,7 +1,7 @@
 const fs = require('fs')
 const os = require('os')
 const wget = require('node-wget-js')
-const unzipper = require('unzipper')
+const AdmZip = require('adm-zip')
 
 function ensureDirExists(dir) {
 	if (!fs.existsSync(dir)){
@@ -19,7 +19,7 @@ const archs = ['x32', 'x64']
 function getDownloadUrl(version = '2.1.1') {
 	const arch = os.arch()
 	const platform = platformMap[os.platform()]
-	return `https://github.com/tmedwards/tweego/releases/download/v${version}/tweego-${version}-${platform}-${arch}.zip`
+	return `http://github.com/tmedwards/tweego/releases/download/v${version}/tweego-${version}-${platform}-${arch}.zip`
 }
 
 function supportedSystem() {
@@ -37,7 +37,8 @@ if (supportedSystem()) {
 				console.error(error);
 			} else {
 				console.log('Extracting...')
-				fs.createReadStream('dist/archive.zip').pipe(unzipper.Extract({ path: 'dist/bin' }));
+                const zip = new AdmZip("dist/archive.zip");
+                zip.extractAllTo("dist/bin", true);
 			}
 		}
 	)
