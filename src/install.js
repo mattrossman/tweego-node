@@ -19,7 +19,7 @@ const archs = ['x32', 'x64']
 function getDownloadUrl(version = '2.1.1') {
 	const arch = os.arch()
 	const platform = platformMap[os.platform()]
-	return `http://github.com/tmedwards/tweego/releases/download/v${version}/tweego-${version}-${platform}-${arch}.zip`
+	return `https://github.com/tmedwards/tweego/releases/download/v${version}/tweego-${version}-${platform}-${arch}.zip`
 }
 
 function supportedSystem() {
